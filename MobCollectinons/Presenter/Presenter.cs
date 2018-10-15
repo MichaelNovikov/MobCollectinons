@@ -23,7 +23,7 @@ namespace PCL.Presenter
         private List<FriendVM> GetFriendVM()
         {
             _viewModel = new List<FriendVM>();
-            var friends = new Repository().GetListOfFriends();
+            var friends = _repository.GetListOfFriends();
 
             foreach (var item in friends)
             {

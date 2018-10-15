@@ -6,10 +6,14 @@
 
   <ItemGroup>
     <None Remove="jsonFile.json" />
+    <None Remove="jsonSmall.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="jsonFile.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="jsonSmall.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

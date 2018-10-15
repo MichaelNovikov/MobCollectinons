@@ -1,4 +1,4 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using PCL;
 
 namespace PCL_Tets
@@ -11,7 +11,7 @@ namespace PCL_Tets
         [TestCase("Alex", "Alexeev")]
         [TestCase(null, "Sergi")]
         [TestCase("Ivan", null)]
-        [TestCase("","")]
+        [TestCase("", "")]
         public void CtorTest(string firstName, string lastName)
         {
             //When
