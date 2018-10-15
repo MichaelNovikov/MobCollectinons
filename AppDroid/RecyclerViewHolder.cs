@@ -1,5 +1,4 @@
-﻿
-using Android.Graphics;
+﻿using Android.Content;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
@@ -17,15 +16,22 @@ namespace AppDroid
         {
             _view = item;
             _textView = item.FindViewById<TextView>(Resource.Id.text_view_id);
+            _textView.Click += Item_Click;
         }
 
         public void SetData(FriendVM friends)
         {
-            _textView.Text = $"{friends?.FirstName}";
+            _textView.Text = $"{friends?.FirstName} {friends?.LastName}";
+        }
 
-            //Random rnd = new Random();
-            //var color = Color.Argb(255, rnd.Next(256), rnd.Next(256), rnd.Next(256));
-            //_view.SetBackgroundColor(color);
+        private void Item_Click(object sender, EventArgs e)
+        {
+            TextView textView = sender as TextView;
+
+            var context = _view.Context;
+            Intent intent = new Intent(context ,typeof(DetailActivity));
+            intent.PutExtra("tag", $"{textView.Text}");
+            context.StartActivity(intent);
         }
     }
 }
