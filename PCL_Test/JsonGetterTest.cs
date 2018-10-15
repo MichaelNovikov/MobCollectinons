@@ -18,7 +18,7 @@ namespace PCL_Test
         {
             _jsonGetter = new JsonGetter();
 
-            var expect = "[\r\n  {\r\n    firstname\": \"Ivan\",\r\n    \"lastname\": \"Ivanov\"\r\n  }\r\n]";
+            var expect = "[\r\n  {\r\n    \"firstname\": \"Ivan\",\r\n    \"lastname\": \"Ivanov\"\r\n  }\r\n]";
 
             var actual = _jsonGetter.GetJsonStr(@"PCL.jsonSmall.json");
 
