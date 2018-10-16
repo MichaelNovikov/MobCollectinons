@@ -24,14 +24,13 @@ namespace AppDroid
             SetContentView(Resource.Layout.activity_main);
 
             _presenter = new Presenter(new Repository(new JsonGetter()));
-            _list = _presenter.GetViewModel();
+            _list = _presenter.GetFriendVM();
 
             var recyclerView = FindViewById<RecyclerView>(Resource.Id.my_recycler_view);
 
             FlexboxLayoutManager flexboxLayoutManager = new FlexboxLayoutManager(this);
             flexboxLayoutManager.FlexDirection = 1;
             flexboxLayoutManager.JustifyContent = 1;
-
 
             recyclerView.SetLayoutManager(flexboxLayoutManager);
 

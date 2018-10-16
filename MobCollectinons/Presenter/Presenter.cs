@@ -14,13 +14,7 @@ namespace PCL.Presenter
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-        public List<FriendVM> GetViewModel()
-        {
-            _viewModel = GetFriendVM();
-            return _viewModel;
-        }
-
-        private List<FriendVM> GetFriendVM()
+        public List<FriendVM> GetFriendVM()
         {
             _viewModel = new List<FriendVM>();
             var friends = _repository.GetListOfFriends();

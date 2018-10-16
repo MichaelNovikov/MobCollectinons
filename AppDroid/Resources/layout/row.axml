@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:textColor="#ffffffff"
         android:textSize="18dp"
-        android:text="HHH"
+        android:text="TestText"
         android:background="@layout/circuler_shape"
         android:layout_margin="3dp" />
 </com.google.android.flexbox.FlexboxLayout>
