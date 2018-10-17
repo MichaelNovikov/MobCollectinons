@@ -4,7 +4,6 @@ using PCL;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace PCL_Tets
 {
@@ -43,23 +42,21 @@ namespace PCL_Tets
         {
             Assert.Throws<ArgumentNullException>(() => new Repository(null, null));
         }
-
         [Test]
         public void GetListOfFriends_Test()
         {
-            //List<Friend> expectList = new List<Friend> { new Friend() {FirstName = "Alex",
-            //    LastName = "Alexeev"}, new Friend() {FirstName = "Ivan", LastName = "Ivanov"}};
+            List<Friend> expectList = new List<Friend> { new Friend() { FirstName = "Ivan", LastName = "Ivanov" } };
 
-            //var mockStrRes = "[{\"firstname\": \"Alex\",\"lastname\": \"Alexeev\"},{\"firstname\": \"Ivan\"," +
-            //    "\"lastname\": \"Ivanov\"}]";
+            var mockStrRes = "[\r\n  {\r\n    \"firstname\": \"Ivan\",\r\n    \"lastname\": \"Ivanov\"\r\n  }\r\n]";
 
-            //_jsonGetterMock.Setup(j => j.GetJsonStr(@"PCL.jsonFile.json")).Returns(mockStrRes);
+            _jsonGetterMock.Setup(j => j.GetJsonStr(It.IsAny<string>())).Returns(mockStrRes);
 
-           var actualList = _repository.GetListOfFriends();
+            var actualList = _repository.GetListOfFriends();
 
-            //Assert.AreEqual(expectList, actualList);
+            Assert.AreEqual(expectList[0].FirstName, actualList[0].FirstName);
+            Assert.AreEqual(expectList[0].LastName, actualList[0].LastName);
 
-            //_jsonGetterMock.Verify(g => g.GetJsonStr((@"PCL.jsonFile.json")), Times.Once);
+            _jsonGetterMock.Verify(g => g.GetJsonStr(It.IsAny<string>()), Times.Once);
         }
     }
 }

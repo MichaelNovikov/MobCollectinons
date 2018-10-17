@@ -1,8 +1,6 @@
 ﻿using NUnit.Framework;
 using PCL.Presenter;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace PCL_Tets
 {
