@@ -65,6 +65,9 @@
         <Reference Include="System.Xml" />
         <Reference Include="System.Core" />
         <Reference Include="Xamarin.iOS" />
+        <Reference Include="Newtonsoft.Json">
+          <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+        </Reference>
     </ItemGroup>
     <ItemGroup>
         <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -112,10 +115,12 @@
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Resources\" />
+        <Folder Include="Resources\Images\" />
     </ItemGroup>
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
         <InterfaceDefinition Include="Main.storyboard" />
+        <InterfaceDefinition Include="ViewCell.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Info.plist" />
@@ -128,6 +133,26 @@
         <Compile Include="ViewController.designer.cs">
             <DependentUpon>ViewController.cs</DependentUpon>
         </Compile>
+        <Compile Include="ViewTwoController_.cs" />
+        <Compile Include="ViewTwoController_.designer.cs">
+          <DependentUpon>ViewTwoController_.cs</DependentUpon>
+        </Compile>
+        <Compile Include="DataSource.cs" />
+        <Compile Include="Delegate.cs" />
+        <Compile Include="ViewCell.cs" />
+        <Compile Include="ViewCell.designer.cs">
+          <DependentUpon>ViewCell.cs</DependentUpon>
+        </Compile>
+        <Compile Include="AlignedCollectionViewFlowLayout.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="Resources\Images\knowledge_graph_logo.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\MobCollectinons\PCL.csproj">
+        <Project>{3C8F5F1D-847E-4EBC-ABF0-7E2BCC4C78A1}</Project>
+        <Name>PCL</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

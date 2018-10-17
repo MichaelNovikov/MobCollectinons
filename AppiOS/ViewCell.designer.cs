@@ -7,22 +7,21 @@
 using Foundation;
 using System;
 using System.CodeDom.Compiler;
-using UIKit;
 
 namespace AppiOS
 {
-    [Register ("ViewController")]
-    partial class ViewController
+    [Register ("ViewCell")]
+    partial class ViewCell
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UICollectionView _collectionView { get; set; }
+        UIKit.UILabel _lblText { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (_collectionView != null) {
-                _collectionView.Dispose ();
-                _collectionView = null;
+            if (_lblText != null) {
+                _lblText.Dispose ();
+                _lblText = null;
             }
         }
     }

@@ -11,18 +11,18 @@ using UIKit;
 
 namespace AppiOS
 {
-    [Register ("ViewController")]
-    partial class ViewController
+    [Register ("ViewTwoController")]
+    partial class ViewTwoController
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UICollectionView _collectionView { get; set; }
+        UIKit.UILabel _LabelText { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (_collectionView != null) {
-                _collectionView.Dispose ();
-                _collectionView = null;
+            if (_LabelText != null) {
+                _LabelText.Dispose ();
+                _LabelText = null;
             }
         }
     }

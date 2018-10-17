@@ -1,25 +1,40 @@
-﻿using Foundation;
+﻿using CoreGraphics;
+using Foundation;
+using PCL;
+using PCL.Presenter;
 using System;
+using System.Collections.Generic;
 using UIKit;
 
 namespace AppiOS
 {
     public partial class ViewController : UIViewController
     {
-        public ViewController (IntPtr handle) : base (handle)
+        Delegate _delegate;
+        Presenter _presenter;
+        List<FriendVM> _list;
+
+        public ViewController(IntPtr handle) : base(handle)
         {
         }
 
-        public override void ViewDidLoad ()
+        public override void ViewDidLoad()
         {
-            base.ViewDidLoad ();
-            // Perform any additional setup after loading the view, typically from a nib.
-        }
+            base.ViewDidLoad();
+            _collectionView.RegisterNibForCell(ViewCell.Nib, ViewCell.Key);
 
-        public override void DidReceiveMemoryWarning ()
-        {
-            base.DidReceiveMemoryWarning ();
-            // Release any cached data, images, etc that aren't in use.
+            _presenter = new Presenter(new Repository(new JsonGetter()));
+            _list = _presenter.GetFriendVM();
+
+            _delegate = new Delegate(this);
+
+           
+            _collectionView.WeakDataSource = new DataSource(_list);
+            _collectionView.WeakDelegate = _delegate;
+
+            _collectionView.ReloadData();
+            _collectionView.ReloadItems(new NSIndexPath[] { NSIndexPath.FromRowSection(0, 0) });
+
         }
     }
 }
