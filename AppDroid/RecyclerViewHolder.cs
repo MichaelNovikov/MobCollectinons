@@ -19,9 +19,9 @@ namespace AppDroid
             _textView.Click += Item_Click;
         }
 
-        public void SetData(FriendVM friends)
+        public void SetData(FriendVM friend)
         {
-            _textView.Text = $"{friends?.FirstName} {friends?.LastName}";
+            _textView.Text = $"{friend?.FirstName} {friend?.LastName}";
         }
 
         private void Item_Click(object sender, EventArgs e)

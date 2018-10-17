@@ -4,10 +4,7 @@ using PCL;
 using PCL.Presenter;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PCL_Test
 {
@@ -58,6 +55,8 @@ namespace PCL_Test
 
             //Then
             Assert.AreEqual(expect[0].ToString(), actual[0].ToString());
+
+            _repositoryMock.Verify(r => r.GetListOfFriends(), Times.Once);
         }
     }
 }

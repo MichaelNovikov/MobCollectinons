@@ -38,12 +38,5 @@ namespace AppDroid
             var adapter = new RecyclerViewAdapter(_list);
             recyclerView.SetAdapter(adapter);
         }
-
-        private void Item_Click(object sender, EventArgs e)
-        {
-            TextView textView = sender as TextView;
-
-            textView.SetTextColor(Android.Graphics.Color.Red);
-        }
     }
 }
