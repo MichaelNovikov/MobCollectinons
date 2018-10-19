@@ -125,6 +125,7 @@
     <InterfaceDefinition Include="CustomViewDetail.xib" />
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomViewDetail.cs" />
