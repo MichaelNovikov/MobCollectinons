@@ -1,4 +1,4 @@
-// WARNING
+﻿// WARNING
 //
 // This file has been generated automatically by Visual Studio from the outlets and
 // actions declared in your storyboard file.
@@ -16,22 +16,13 @@ namespace AppiOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel _LabelText { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextView _txtView { get; set; }
+        AppiOS.CustomViewDetail CustomInView { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (_LabelText != null) {
-                _LabelText.Dispose ();
-                _LabelText = null;
-            }
-
-            if (_txtView != null) {
-                _txtView.Dispose ();
-                _txtView = null;
+            if (CustomInView != null) {
+                CustomInView.Dispose ();
+                CustomInView = null;
             }
         }
     }

@@ -28,9 +28,9 @@ namespace AppiOS
 
         }
 
-        public void SetData(FriendVM friends)
+        public void SetData(FriendVM friend)
         {
-            _lblText.Text = $"{friends?.FirstName} {friends?.LastName}";
+            _lblText.Text = friend.FirstLastName;
         }
 
     }

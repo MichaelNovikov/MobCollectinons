@@ -20,23 +20,13 @@ namespace AppiOS
         public override CGSize GetSizeForItem(UICollectionView collectionView, UICollectionViewLayout layout, NSIndexPath indexPath)
         {
             var friend = ((DataSource)collectionView.WeakDataSource)._friends[indexPath.Row];
-            CGSize size = new NSString((friend.FirstName + "   " + friend.LastName)).GetSizeUsingAttributes(new UIStringAttributes(NSDictionary.FromObjectAndKey(UIFont.BoldSystemFontOfSize(15), UIStringAttributeKey.Font)));
+            CGSize size = new NSString(friend.FirstLastName + "   " ).GetSizeUsingAttributes(new UIStringAttributes(NSDictionary.FromObjectAndKey(UIFont.BoldSystemFontOfSize(15), UIStringAttributeKey.Font)));
             size.Width += 10;
             size.Height += 10;
             collectionView.SystemLayoutSizeFittingSize(size, 1.0f, 1.0f);
             
 
             return size;
-        }
-
-        public override void ItemHighlighted(UICollectionView collectionView, NSIndexPath indexPath)
-        {
-        
-        }
-
-        public override void ItemUnhighlighted(UICollectionView collectionView, NSIndexPath indexPath)
-        {
-         
         }
 
         public override void ItemSelected(UICollectionView collectionView, NSIndexPath indexPath)
@@ -46,7 +36,7 @@ namespace AppiOS
             var friend = ((DataSource)collectionView.WeakDataSource)._friends[indexPath.Row];
 
             ViewTwoController viewTwo = _controller.Storyboard.InstantiateViewController("ViewTwo") as ViewTwoController;
-            viewTwo.textData = $"{friend?.FirstName} {friend?.LastName}";
+            viewTwo.textData = friend.FirstLastName;
             _controller.NavigationController.PushViewController(viewTwo, true);
         }
 
@@ -54,6 +44,16 @@ namespace AppiOS
         {
             // Always allow for highlighting
             return true;
+        }
+
+        public override void ItemHighlighted(UICollectionView collectionView, NSIndexPath indexPath)
+        {
+
+        }
+
+        public override void ItemUnhighlighted(UICollectionView collectionView, NSIndexPath indexPath)
+        {
+
         }
     }
 }

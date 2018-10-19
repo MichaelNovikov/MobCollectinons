@@ -1,5 +1,4 @@
-﻿using PCL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace PCL.Presenter
@@ -21,7 +20,7 @@ namespace PCL.Presenter
 
             foreach (var item in friends)
             {
-                _viewModel.Add(new FriendVM { FirstName = item.FirstName, LastName = item.LastName });
+                _viewModel.Add(new FriendVM { FirstLastName = $"{item?.FirstName} {item?.LastName}" });
             }
             return _viewModel;
         }

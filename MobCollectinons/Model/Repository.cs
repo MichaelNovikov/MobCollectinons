@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection;
+
 
 namespace PCL
 {
@@ -28,7 +26,7 @@ namespace PCL
         {
             if (_friends == null)
             {
-                string jsonStr = _jsonGetter.GetJsonStr(_path);
+                string jsonStr = _jsonGetter?.GetJsonStr(_path);
                 _friends = JsonConvert.DeserializeObject<List<Friend>>(jsonStr);
             }
             return _friends;

@@ -45,7 +45,7 @@ namespace PCL_Test
         public void GetFriendVM_Test()
         {
             //Given
-            var expect = new List<FriendVM> { new FriendVM { FirstName = "Ivan", LastName = "Ivanov" } };        
+            var expect = new List<FriendVM> { new FriendVM { FirstLastName = "Ivan Ivanov" } };        
             var mockRes = new List<Friend> { new Friend{ FirstName = "Ivan", LastName = "Ivanov" } };
 
             _repositoryMock.Setup(r => r.GetListOfFriends()).Returns(mockRes);

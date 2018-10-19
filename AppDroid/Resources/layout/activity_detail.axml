@@ -3,32 +3,10 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/detailImage_view_id1"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center_horizontal" />
-	<TextView
-		android:id="@+id/detailText_view_id1"
-		android:layout_height="100dp"
-		android:layout_width="match_parent"
-		android:textSize="40dp"
-		android:textAlignment="center"
-		android:text="Text"
-		android:textColor="#fff50057"
-		android:layout_marginBottom="10.0dp" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:fillViewport="true">
-        <TextView
-            android:id="@+id/detailText_view_id2"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textSize="20dp"
-            android:text="Text"
-            android:textAlignment="textStart"
-            android:background="#ff40c4ff" />
-    </ScrollView>
+
+   <AppDroid.CustomView
+	android:id="@+id/customViewDetail"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"	
+	/>
 </LinearLayout>

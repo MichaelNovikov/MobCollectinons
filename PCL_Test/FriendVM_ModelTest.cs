@@ -9,18 +9,16 @@ namespace PCL_Tets
     {
         FriendVM friend;
 
-        [TestCase("Alex", "Alexeev")]
-        [TestCase("Petr", "Petrov")]
-        [TestCase(null, "Sergi")]
-        [TestCase("Ivan", null)]
-        public void CtorTest(string firstName, string lastName)
+        [TestCase("Alex Alexeev")]
+        [TestCase("Petr Petrov")]
+
+        public void CtorTest(string firstLastName)
         {
             //When
-            friend = new FriendVM() { FirstName = firstName, LastName = lastName };
+            friend = new FriendVM() {FirstLastName = firstLastName};
 
             //Then
-            Assert.AreEqual(firstName, friend.FirstName);
-            Assert.AreEqual(lastName, friend.LastName);
+            Assert.AreEqual(firstLastName, friend.FirstLastName);
         }
     }
 }
