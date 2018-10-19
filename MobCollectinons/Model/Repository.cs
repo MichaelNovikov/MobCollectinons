@@ -27,7 +27,15 @@ namespace PCL
             if (_friends == null)
             {
                 string jsonStr = _jsonGetter?.GetJsonStr(_path);
-                _friends = JsonConvert.DeserializeObject<List<Friend>>(jsonStr);
+
+                if (jsonStr != null && jsonStr != "")
+                {
+                    _friends = JsonConvert.DeserializeObject<List<Friend>>(jsonStr);
+                }
+                else
+                {
+                    return new List<Friend>();
+                }
             }
             return _friends;
         }

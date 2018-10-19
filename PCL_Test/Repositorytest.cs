@@ -97,15 +97,15 @@ namespace PCL_Tets
 
             var field_friends = typeof(Repository)
             .GetField("_friends", BindingFlags.NonPublic | BindingFlags.Instance);
-            field_friends.SetValue(_repository, listExpect);
+            field_friends.SetValue(_repository, null);
 
             _jsonGetterMock.Setup(j => j.GetJsonStr(@"PCL.jsonFile.json")).Returns(mockStrRes);
 
             var actualList = _repository.GetListOfFriends();
 
-            Assert.AreEqual(listExpect, actualList);
+            CollectionAssert.AreEqual(listExpect, actualList);
 
-            _jsonGetterMock.Verify(g => g.GetJsonStr(@"PCL.jsonFile.json"), Times.Once);
+            _jsonGetterMock.Verify(g => g.GetJsonStr(@"PCL.jsonFile.json"), Times.Never);
         }
     }
 }
