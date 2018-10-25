@@ -17,7 +17,7 @@ namespace PCL.Presenter
         {
             _viewModel = new List<FriendVM>();
 
-            var friends = _repository.GetListOfFriends();
+            var friends = _repository?.GetListOfFriends() ?? new List<Friend>();
 
             foreach (var item in friends)
             {

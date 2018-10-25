@@ -107,5 +107,25 @@ namespace PCL_Tets
 
             _jsonGetterMock.Verify(g => g.GetJsonStr(@"PCL.jsonFile.json"), Times.Never);
         }
+
+        [Test]
+        public void GetListOfFriends_ifJsonStrEmpty_Test()
+        {
+            List<Friend> listExpect = new List<Friend> { };
+
+            string mockStrRes = "";
+
+            var field_friends = typeof(Repository)
+            .GetField("_friends", BindingFlags.NonPublic | BindingFlags.Instance);
+            field_friends.SetValue(_repository, null);
+
+            _jsonGetterMock.Setup(j => j.GetJsonStr(@"PCL.jsonFile.json")).Returns(mockStrRes);
+
+            var actualList = _repository.GetListOfFriends();
+
+            CollectionAssert.AreEqual(listExpect, actualList);
+
+            _jsonGetterMock.Verify(g => g.GetJsonStr(@"PCL.jsonFile.json"), Times.Never);
+        }
     }
 }
